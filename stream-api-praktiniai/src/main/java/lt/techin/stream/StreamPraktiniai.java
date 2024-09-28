@@ -21,20 +21,28 @@ public class StreamPraktiniai {
     }
 
     public static List<Integer> getDistinctAges(List<User> users) {
-        return users.stream().distinct().collect(Collectors.toList());
+        return users.stream()
+                .map(User::getAge)
+                .distinct()
+                .toList();
     }
 
 
     public static List<User> getLimitedUserList(List<User> users, int limit) {
-        throw new UnsupportedOperationException("Not implemented");
+        return users.stream()
+                .limit(limit)
+                .toList();
     }
 
     public static Integer countUsersOlderThen25(List<User> users) {
-        throw new UnsupportedOperationException("Not implemented");
+        return (int) users.stream()
+                .filter(user -> user.getAge() > 25)
+                .count();
+
     }
 
     public static List<String> mapToUpperCase(List<String> strings) {
-        throw new UnsupportedOperationException("Not implemented");
+        return ;
     }
 
     public static Integer sum(List<Integer> integers) {
