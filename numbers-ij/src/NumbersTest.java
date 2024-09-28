@@ -67,13 +67,9 @@ public class NumbersTest extends BaseTest {
 
             @Override
             public List<Integer> computeNumbersUpTo(int i) {
-                List<Integer> list = new ArrayList<>();
-                int number = 1;
-                while (number < i) {
-                    list.add(number);
-                    number++;
-                }
-                return list;
+                return IntStream.rangeClosed(1, i-1)
+                        .boxed()
+                        .toList();
             }
 
             @Override
